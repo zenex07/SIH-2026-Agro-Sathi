@@ -1,0 +1,17 @@
+# Market Data Research — 2026-08-19
+
+The official Open Government Data catalogue states that its daily mandi dataset contains wholesale minimum, maximum, and modal commodity prices generated through AGMARKNET. The official AGMARKNET site returned a CAPTCHA in the sandbox, so it is not suitable for anonymous browser scraping.
+
+CEDA Agri Market Data is a public analytical interface that attributes its data to the Directorate of Marketing and Inspection, Ministry of Agriculture and Farmers Welfare. Browser inspection confirmed a public `https://agmarknet.ceda.ashoka.edu.in/api/commodities` endpoint used by the interface. The endpoint must be validated for current pricing, query parameters, rate limits, and production suitability before it is adopted as the application’s no-cost source.
+
+The public commodities endpoint responded without authentication and included crop records such as Cotton, Soyabean, Wheat, Onion, Tomato, Potato, and many more. The browser bundle did not expose an easily detectable price URL, so the current-price request contract still needs validation. The source should therefore be used only behind a server-side adapter with graceful no-data handling and a visible “latest available” timestamp.
+
+Interactive verification of the public CEDA page loaded `https://agmarknet.ceda.ashoka.edu.in/api/prices` and `https://agmarknet.ceda.ashoka.edu.in/api/quantities` without an authentication prompt, alongside category, commodity, state, and district endpoints. The displayed source data was historical in the observed session (up to October 2025), which proves endpoint availability but does not prove freshness for a live farmer decision. The production integration should fetch on demand, persist its upstream timestamp, and classify any delayed response as “latest available,” not “live.”
+
+The verified price request is a JSON `POST` to `https://agmarknet.ceda.ashoka.edu.in/api/prices` with `state_id`, `commodity_id`, `district_id`, `calculation_type`, `start_date`, and `end_date`. CEDA uses `calculation_type: "d"` for daily aggregation and numeric `0` for the all-India/all-districts selection. An optional `chart_type: "map"` is used by the source interface for geographic visualization. This contract is sufficient to build a controlled server-side proxy with validation and timeout handling.
+
+Successful browser validation on 2026-08-19 confirmed the response shape: `{ data: [{ cmdty, p_max, p_min, p_modal, t }] }`. A daily Wheat request returned records with `t` formatted as `YYYY-MM-DD` and rupee-per-quintal numeric `p_modal`, `p_min`, and `p_max` values. The production adapter should use these exact fields, request the smaller monthly series for a fast latest-available result, and show the source date without implying intraday freshness.
+
+Cross-origin testing from the AgroSaarthi development origin failed with `TypeError: Failed to fetch`, confirming that the app must use a server-side market adapter rather than a client-side CEDA request. The public CEDA page successfully returns data in-browser on its own origin, while a raw server-side `curl` request did not return a body in the sandbox. Treat server-side CEDA reachability as a deployment verification item and maintain the existing unavailable-data UI state.
+
+For the user-facing product, describe prices as the **latest available mandi price** and always display the source and update timestamp. Do not imply intraday or tick-by-tick prices when the upstream data is published daily.

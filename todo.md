@@ -1,0 +1,43 @@
+# AgroSaarthi Professional App Upgrade
+
+- [x] Add account login, registration, and an authenticated application shell.
+- [x] Replace the permanent Gulmohar Farm state with editable and selectable multi-farm records.
+- [x] Add manual farm creation with crop, area, irrigation, and map-based location selection.
+- [x] Enable camera capture and image-file upload in the crop-diagnosis workflow.
+- [x] Add crop-aware diagnosis state, saved photo preview, upload status, and accountable AI-result messaging.
+- [x] Validate the CEDA `/api/prices` response schema with a successful live request and update the server adapter to its exact fields.
+- [x] Select CEDA as the no-key market-price provider, with a visible latest-available freshness policy.
+- [x] Build CEDA-backed crop-aware market cards with source, upstream date, and unavailable-data states.
+- [x] Refine the AI and architecture presentation for a professional end-to-end product narrative.
+- [x] Elevate the visual finish with a more confident premium editorial composition, richer field texture, and sharper interactive states.
+- [x] Apply the premium editorial polish consistently across signed-in home, farm, diagnosis, market, and edit states.
+- [x] Capture and review signed-in desktop and mobile screens after the visual pass.
+- [ ] Capture and review signed-in desktop screenshots for home, farms, diagnosis, market, and edit-modal states after the premium visual pass.
+- [ ] Capture and review signed-in mobile screenshots for the same protected workspace states after the premium visual pass.
+- [ ] Address any visual inconsistency identified in the signed-in workspace review and re-verify.
+- [ ] Verify account, farm, photo, market, map, and mobile workflows before delivery.
+- [ ] Run signed-in end-to-end QA for farm creation/editing, map pinning, crop-photo upload/capture, diagnosis review, and CEDA market retrieval.
+- [x] Make crop photo upload/camera capture visibly usable from the diagnosis workflow and present an in-app crop-quality assessment result.
+- [x] Add a persistent roaming AI crop companion that can be opened from every app screen and supports contextual farmer questions.
+- [x] Add a dedicated settings center with language, visual theme, and account controls.
+- [x] Translate the app shell and farmer workflows between English, Hindi, and Marathi with a persistent language preference.
+- [x] Add a user-selectable light/dark visual theme while preserving the premium Field Notes visual language.
+- [x] Document and validate the local development contract for authentication, market, photo, AI, settings, and localisation fallbacks.
+- [ ] Translate remaining farmer workflow copy in auth, home, diagnosis, market, farms, empty/error states, and assistant prompts for English, Hindi, and Marathi.
+- [ ] Run and record local development QA for auth gating, CEDA unavailable state, crop-photo/AI fallback, and settings language/theme persistence.
+- [x] Create a DOCX local development handover guide with setup, protected integration configuration, run commands, and workflow verification steps.
+- [x] Fix the mobile market-title overlap by preserving clear text flow and the premium field-note hierarchy at narrow widths.
+- [x] Extend crop photo review with a cautious AI disease-signal assessment and actionable organic, chemical, irrigation, and soil-health advisory presentation.
+- [x] Add mandi trend forecasting and yield-window prediction with transparent assumptions and non-guarantee framing.
+- [x] Add an explicit Hinglish voice mode with code-mixed Hindi/English transcription guidance alongside Hindi, Marathi, and English.
+- [x] Add live map-based discovery of nearby mandi, agricultural buyer/wholesale, storage, and transport places around the selected farm.
+- [ ] Connect verified buyer, transport, storage, and mandi-demand data sources to activate real farm-to-market matches beyond harvest-intent planning.
+- [ ] Verify the advanced modules on desktop and mobile without disturbing the existing visual design.
+- [ ] Run signed-in intelligence-workspace QA for voice recording, cached offline advisory reuse, forecast cards, and harvest-intent saving.
+- [x] Configure the user-supplied Gemini credential as a server-side secret for the live Saarthi companion.
+- [x] Pass a minimal safe snapshot of the active screen and selected farm/crop/market or diagnosis workflow context to Saarthi.
+- [x] Upgrade Saarthi’s visible conversation state with live-response, active-screen, loading, and fallback indicators.
+- [ ] Verify live companion answers and graceful offline/failure behaviour across the protected farmer workspace.
+- [x] Pass minimal current state to Saarthi per workspace: market price/date/status, latest diagnosis result state, intelligence forecast/harvest-brief state, and settings choices.
+- [ ] Run signed-in QA showing Saarthi responses adapt appropriately across Home, Diagnose, Market, Intelligence, Farms, and Settings.
+- [x] Create a complete project DOCX dossier covering AgroSaarthi’s purpose, workflows, technical architecture, advanced modules, security, and operations.
